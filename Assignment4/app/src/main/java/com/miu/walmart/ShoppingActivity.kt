@@ -12,10 +12,10 @@ import kotlinx.android.synthetic.main.activity_shopping.*
 
 class ShoppingActivity : AppCompatActivity() {
     var items :List<Category> = arrayListOf(
-        Category("Electronics", "electronic", R.drawable.electronics),
+        Category("Electronics", "electronic", R.drawable.beauty),
         Category("Beauty", "beauty", R.drawable.beauty),
-        Category("Clothing", "clothing", R.drawable.clothing),
-        Category("Food", "food", R.drawable.food)
+        Category("Clothing", "clothing", R.drawable.beauty),
+        Category("Food", "food", R.drawable.beauty)
         )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,8 @@ class ShoppingActivity : AppCompatActivity() {
             override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 val selectedItem:Category = parent.getItemAtPosition(position) as Category
                 Toast.makeText(applicationContext,selectedItem.name,Toast.LENGTH_SHORT).show()
-
+//                var intent = Intent(applicationContext,ItemCategory::class.java)
+//                startActivity(intent)
             }
         }
 
@@ -73,7 +74,7 @@ class MyAdapter(val context: Context,val myList:List<Category>):BaseAdapter(){
         var firstName:TextView?=null
         var image: ImageView?=null
         init {
-            userName = view?.findViewById<TextView>(R.id.imageText)
+           // userName = view?.findViewById<TextView>(R.id.imageText)
 //            firstName = view?.findViewById<TextView>(R.id.firstname)
             image = view?.findViewById<ImageView>(R.id.itemIcon)
 
