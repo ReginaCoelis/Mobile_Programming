@@ -12,10 +12,10 @@ import kotlinx.android.synthetic.main.activity_shopping.*
 
 class ShoppingActivity : AppCompatActivity() {
     var items :List<Category> = arrayListOf(
-        Category("Electronics", "electronic", R.drawable.beauty),
+        Category("Electronics", "electronic", R.drawable.electronics),
         Category("Beauty", "beauty", R.drawable.beauty),
-        Category("Clothing", "clothing", R.drawable.beauty),
-        Category("Food", "food", R.drawable.beauty)
+        Category("Clothing", "clothing", R.drawable.clothing),
+        Category("Food", "food", R.drawable.food)
         )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class MyAdapter(val context: Context,val myList:List<Category>):BaseAdapter(){
 
         var category:Category  = getItem(position)
 
-        viewHolder.userName?.text =category.name
+        viewHolder.item?.text =category.name
         viewHolder.image?.setImageResource(category.image)
         return view as View
     }
@@ -70,13 +70,12 @@ class MyAdapter(val context: Context,val myList:List<Category>):BaseAdapter(){
     }
 
     private class ViewHolder(view: View?){
-        var userName: TextView?=null
-        var firstName:TextView?=null
+        var item: TextView?=null
         var image: ImageView?=null
         init {
-           // userName = view?.findViewById<TextView>(R.id.imageText)
-//            firstName = view?.findViewById<TextView>(R.id.firstname)
-            image = view?.findViewById<ImageView>(R.id.itemIcon)
+
+            image = view?.findViewById<ImageView>(R.id.itemImage)
+            item = view?.findViewById<TextView>(R.id.itemName)
 
         }
     }

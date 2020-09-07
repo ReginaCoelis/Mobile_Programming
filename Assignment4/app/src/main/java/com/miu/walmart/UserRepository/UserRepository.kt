@@ -11,8 +11,7 @@ class UserRepository {
             User("Zein","Samira","zsamira@test.com","567"),
             User("Gordon","Kisakye","gkisakye@test.com","789"),
             User("Fahad","Makabugo","fmakabugo@test.com","901"),
-            User("Paul","Kigozi","pkigozi@test.com","135"),
-              User("Ben","Kigozi","ben@test.com","13")
+            User("Paul","Kigozi","pkigozi@test.com","135")
           )
   }
 
