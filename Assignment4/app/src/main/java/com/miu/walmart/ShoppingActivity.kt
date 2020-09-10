@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_shopping.*
+import kotlinx.android.synthetic.main.custom_list.*
 
 class ShoppingActivity : AppCompatActivity() {
     var items :List<Category> = arrayListOf(
@@ -23,16 +24,24 @@ class ShoppingActivity : AppCompatActivity() {
         user.text = "Welcome ${intent.getStringExtra("userName")}"
         itemsGrid.adapter= MyAdapter(this,items)
 
+
         itemsGrid.onItemClickListener = object: AdapterView.OnItemClickListener{
             override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 val selectedItem:Category = parent.getItemAtPosition(position) as Category
                 Toast.makeText(applicationContext,selectedItem.name,Toast.LENGTH_SHORT).show()
-//                var intent = Intent(applicationContext,ItemCategory::class.java)
-//                startActivity(intent)
+
+             var intent = Intent(applicationContext,ItemList::class.java)
+                startActivity(intent)
             }
         }
-
     }
+
+//    fun itemClicked() {
+//        itemImage.setOnClickListener {
+//            var intent : Intent = Intent(this, ItemList::class.java)
+//            startActivity(intent)
+//        }
+//    }
 }
 class MyAdapter(val context: Context,val myList:List<Category>):BaseAdapter(){
 
